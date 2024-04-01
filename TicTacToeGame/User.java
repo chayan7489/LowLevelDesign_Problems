@@ -1,6 +1,6 @@
 package TicTacToeGame;
 
-public class User {
+public abstract class User {
     String userName;
     String  userId;
 
@@ -21,4 +21,7 @@ public class User {
         return userId;
     }
 
+    public void setUserId(String userId){
+        this.userId = userId;
+    }
 }
