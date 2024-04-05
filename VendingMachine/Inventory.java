@@ -30,45 +30,8 @@ public class Inventory {
             startCode++;
         }
     }
-//
-//    public void addItem(Item item, int codeNumber) throws Exception {
-//
-//        for (ItemShelf itemShelf : inventory) {
-//            if (itemShelf.code == codeNumber) {
-//                if (itemShelf.isSoldOut()) {
-//                    itemShelf.item = item;
-//                    itemShelf.setSoldOut(false);
-//                } else {
-//                    throw new Exception("already item is present, you can not add item here");
-//                }
-//            }
-//        }
-//    }
-//
-//    public Item getItem(int codeNumber) throws Exception {
-//
-//        for (ItemShelf itemShelf : inventory) {
-//            if (itemShelf.code == codeNumber) {
-//                if (itemShelf.isSoldOut()) {
-//                    throw new Exception("item already sold out");
-//                } else {
-//                    return itemShelf.item;
-//                }
-//            }
-//        }
-//        throw new Exception("Invalid Code");
-//    }
-//
-//    public void updateSoldOutItem(int codeNumber){
-//        for (ItemShelf itemShelf : inventory) {
-//            if (itemShelf.code == codeNumber) {
-//                itemShelf.setSoldOut(true);
-//            }
-//        }
-//    }
 
-
-    public void addItem(Item item, int codeNumber) {
+    public void addItem(Item item, int codeNumber) throws Exception {
 
         for (ItemShelf itemShelf : inventory) {
             if (itemShelf.code == codeNumber) {
@@ -76,26 +39,24 @@ public class Inventory {
                     itemShelf.item = item;
                     itemShelf.setSoldOut(false);
                 } else {
-                    System.out.println("already item is present, you can not add item here");
+                    throw new Exception("already item is present, you can not add item here");
                 }
             }
         }
     }
 
-    public Item getItem(int codeNumber){
+    public Item getItem(int codeNumber) throws Exception {
 
         for (ItemShelf itemShelf : inventory) {
             if (itemShelf.code == codeNumber) {
                 if (itemShelf.isSoldOut()) {
-                    System.out.println("item already sold out");
+                    throw new Exception("item already sold out");
                 } else {
                     return itemShelf.item;
-                    // below line will also work fine
-                    //return itemShelf.getItem();
                 }
             }
         }
-        return null;
+        throw new Exception("Invalid Code");
     }
 
     public void updateSoldOutItem(int codeNumber){
