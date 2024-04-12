@@ -1,6 +1,7 @@
 package DesignSplitWise.TypesOfSplits;
 
 import DesignSplitWise.User;
+
 public abstract class Split {
     private User user;
     double amount;
