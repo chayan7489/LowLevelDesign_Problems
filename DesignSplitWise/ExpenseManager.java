@@ -2,12 +2,8 @@ package DesignSplitWise;
 
 
 import DesignSplitWise.TypesOfExpenses.Expense;
-//import com.workattech.splitwise.models.expense.ExpenseMetadata;
-//import com.workattech.splitwise.models.expense.ExpenseType;
-//import com.workattech.splitwise.models.split.Split;
 import DesignSplitWise.TypesOfSplits.Split;
 import DesignSplitWise.Service.ExpenseService;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,12 +21,13 @@ public class ExpenseManager {
     }
 
     public void addUser(User user) {
+        
         userMap.put(user.getId(), user);
         balanceSheet.put(user.getId(), new HashMap<String, Double>());
     }
 
     public void addExpense(ExpenseType expenseType, double amount, String paidBy, List<Split> splits, ExpenseMetadata expenseMetadata) {
-        // "createExpense" is static
+        
         Expense expense = ExpenseService.createExpense(expenseType, amount, userMap.get(paidBy), splits, expenseMetadata);
 
         expenses.add(expense);
@@ -38,7 +35,7 @@ public class ExpenseManager {
         // updating balance sheet
         for (Split split : expense.getSplits()) {
 
-            // jisne dusre bande ko paise diye voh apni list update karega yha pe [given state]
+            //  when someone gave money for other person [given amount state]
             String paidTo = split.getUser().getId();
             Map<String, Double> balances = balanceSheet.get(paidBy);
             if (!balances.containsKey(paidTo)) {
@@ -46,34 +43,17 @@ public class ExpenseManager {
             }
             balances.put(paidTo, balances.get(paidTo) + split.getAmount());
 
-            // jisne paise liye dusre bande se voh apni list update karega [owes state]
+            // when someone took money from other person [owes state]
             balances = balanceSheet.get(paidTo);
             if (!balances.containsKey(paidBy)) {
                 balances.put(paidBy, 0.0);
             }
             balances.put(paidBy, balances.get(paidBy) - split.getAmount());
-
-            //System.out.println(balances.get(paidBy));
         }
-
-        // debug
-//        for(Split split : splits){
-//
-//            String userId = split.getUser().getId();
-//            System.out.print(userId + "-----");
-//            System.out.println();
-//            Map<String, Double> map = balanceSheet.get(userId);
-//
-//            for(String key : map.keySet()){
-//                System.out.print(key + " == ");
-//                System.out.print(map.get(key));
-//                System.out.println();
-//            }
-//
-//        }
     }
 
     public void showBalance(String userId) {
+        
         boolean isEmpty = true;
         for (Map.Entry<String, Double> userBalance : balanceSheet.get(userId).entrySet()) {
             if (userBalance.getValue() != 0) {
@@ -88,6 +68,7 @@ public class ExpenseManager {
     }
 
     public void showBalances() {
+        
         boolean isEmpty = true;
         for (Map.Entry<String, Map<String, Double>> allBalances : balanceSheet.entrySet()) {
             for (Map.Entry<String, Double> userBalance : allBalances.getValue().entrySet()) {
@@ -104,6 +85,7 @@ public class ExpenseManager {
     }
 
     private void printBalance(String user1, String user2, double amount) {
+        
         String user1Name = userMap.get(user1).getName();
         String user2Name = userMap.get(user2).getName();
         if (amount < 0) {
