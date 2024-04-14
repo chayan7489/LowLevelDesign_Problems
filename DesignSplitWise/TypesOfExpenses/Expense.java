@@ -7,6 +7,7 @@ import DesignSplitWise.ExpenseMetadata;
 import java.util.List;
 
 public abstract class Expense {
+    
     private String id;
     private double amount;
     private User paidBy;

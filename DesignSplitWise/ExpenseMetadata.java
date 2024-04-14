@@ -1,6 +1,7 @@
 package DesignSplitWise;
 
 public class ExpenseMetadata {
+    
     private String name;
     private String imgUrl;
     private String notes;
