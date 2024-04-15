@@ -1,5 +1,19 @@
 **Problem Link: https://docs.google.com/document/d/e/2PACX-1vSbAgRng_p5UOJVuTraFgvLRE9YtELDZXrMQbcUslIBLLvK7yEq5ncKIRC7Zz1hk5PzGA-F_suQMYcn/pub
 
+
+
+![image](https://github.com/chayansharma7/LowLevelDesign_Problems/assets/61390152/d4b7a25a-0e35-41b1-a42d-1e7aa781e25a)
+
+
+![image](https://github.com/chayansharma7/LowLevelDesign_Problems/assets/61390152/50f1d94e-6589-4338-96c2-d61f146651f1)
+
+![image](https://github.com/chayansharma7/LowLevelDesign_Problems/assets/61390152/a8e57170-9c92-4ded-85f6-6b4f743a60f7)
+
+
+
+
+
+
 Description:
 
 We are required to build an app that lets patients connect to doctors and book appointments. The day is divided into time slots of 30 mins each, starting from 9 am to 9 pm. Doctors can login to the portal and declare their availability for the given day in terms of slots.  Patients can book appointments/ cancel existing appointments. For simplicity you can assume that the doctors’ availability is declared for that particular day only. 
@@ -167,13 +181,6 @@ i: showAppointmentsBooked(PatientF)
 o: Booking id: 5280, Dr Curious 9:30
 
 o: Booking id: 5587 , Dr Daring 11:30
-
-
-
-![image](https://github.com/chayansharma7/LowLevelDesign_Problems/assets/61390152/50f1d94e-6589-4338-96c2-d61f146651f1)
-
-![image](https://github.com/chayansharma7/LowLevelDesign_Problems/assets/61390152/a8e57170-9c92-4ded-85f6-6b4f743a60f7)
-
 
 
 
